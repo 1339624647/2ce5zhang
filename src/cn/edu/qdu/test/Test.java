@@ -9,7 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		try {
 			// 获得class
-			Class clazz = Class.forName("Dog ");
+			Class clazz = Class.forName("cn.edu.qdu.test.Dog");
 			// 获得构造方法
 			Constructor con = clazz.getConstructor(Integer.TYPE);
 			// 调用构造方法
@@ -25,12 +25,12 @@ public class Test {
 			//获得属性
 			Field name=clazz.getDeclaredField("name");
 			Field age=clazz.getDeclaredField("age");
-			//调用属性
-			name.set(obj, "wangwang");
-			age.set(obj, 34);
 			//允许授权访问私有属性
 			name.setAccessible(true);
+			//调用属性
 			age.setAccessible(true);
+			name.set(obj, "wangwang");
+			age.set(obj, 34);
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
